@@ -11,7 +11,9 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Customer</th>
-           
+            <th scope="col">Membership Type</th>
+            <th scope="col">Discount Rate</th>
+
         </tr>
     </thead>
     <tbody>
@@ -27,6 +29,8 @@
                 <tr>
                     <th scope="row">@customer.Id</th>
                     <td>@Html.ActionLink(customer.Name, "Details","Customer",new { id = customer.Id},null)</td>
+                    <td>@customer.MembershipType.Name</td>
+                    <td>@customer.MembershipType.DiscountRate%</td>
                 </tr>
 
             }

@@ -11,6 +11,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Movie</th>
+            <th scope="col">Genre</th>
         </tr>
     </thead>
     <tbody>
@@ -23,10 +24,11 @@
 
             foreach (var movie in Model)
             {
-                <tr>
-                    <th scope="row">@movie.Id</th>
-                    <td>@movie.Name</td>
-                </tr>
+        <tr>
+            <th scope="row">@movie.Id</th>
+            <th>@Html.ActionLink(movie.Name, "Details", new { id = movie.Id }, null)</th>
+            <th scope="row">@movie.Genre.Name</th>
+        </tr>
 
             }
         }

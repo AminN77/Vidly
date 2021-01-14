@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +11,18 @@ namespace Vidly.Controllers
 {
     public class MovieController : Controller
     {
+        private readonly VidlyDataBaseContext _context;
+
+        public MovieController()
+        {
+            _context = new VidlyDataBaseContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Movie/Random
         public ActionResult Random()
         {
@@ -40,12 +53,7 @@ namespace Vidly.Controllers
        
         public ActionResult Index()
         {
-             var movies = new List<Movie>
-            {
-              new Movie { Name="GodFather" ,Id=1},
-              new Movie { Name="Forrest Gump" , Id=2},
-              new Movie { Name="GoodFellas" , Id=3}
-            };
+            var movies = _context.Movies.Include(m => m.Genre).ToList();
 
             return View(movies);
 
@@ -55,6 +63,27 @@ namespace Vidly.Controllers
         public ActionResult ByReleaseDate(int year, int month)
         {
             return Content(year + "/" + month);
+        }
+
+        [Route("movie/details/{id}")]
+        public ActionResult Details(int id)
+        {
+            Movie movie;
+
+            try
+            {
+                movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+
+                if (movie != null)
+                    return View(movie);
+            }
+            catch (Exception exp)
+            {
+
+                Console.WriteLine($"exception occured : {exp}");
+            }
+
+            return HttpNotFound();
         }
     }
 }

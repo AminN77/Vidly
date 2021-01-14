@@ -7,3 +7,6 @@ also : https://marketplace.visualstudio.com/items?itemName=vs-publisher-123005.A
 
 problem : string interpolation in C#
 solution : $"sth sth sth {var}"
+
+problem : database has duplicate foreignKey for one field
+solution: if using convention (FK : fieldId) make sure that PK and FK are have same Types

@@ -1,3 +1,9 @@
 ﻿problem : bootstrap theme can not load properly?
 solution:https://stackoverflow.com/questions/48488214/adding-new-theme-to-asp-net-mvc-5-dont-work
 
+problem : mvcaction4 code snnipet does not work?
+solution :https://stackoverflow.com/questions/42748460/why-mvcaction4-code-snippet-does-not-re
+also : https://marketplace.visualstudio.com/items?itemName=vs-publisher-123005.ASPNETMVCSnippetPack
+
+problem : string interpolation in C#
+solution : $"sth sth sth {var}"

@@ -196,6 +196,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\VidlyDataBaseContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationModels\Min18YearsIfAMember.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />

@@ -18,7 +18,7 @@ namespace Vidly.ViewModels
         [Required]
         [Display(Name = "Release Date")]
         [Range(typeof(DateTime), "01 jan 1960", "01 jan 2021")]
-        public DateTime? ReleaseDate { get; set; } = DateTime.MinValue;
+        public DateTime? ReleaseDate { get; set; } = DateTime.UtcNow;
 
         [Required]
         [Range(1, 20)]

@@ -18,9 +18,8 @@ namespace Vidly.ViewModels
         public string Name { get; set; }
 
         [Display(Name = "Date of Birth")]
-        [Range(typeof(DateTime),"01 jan 1960","01 jan 2021")]
         [Min18YearsIfAMember]
-        public DateTime? BirthDate { get; set; } = DateTime.UtcNow;
+        public DateTime? BirthDate { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
 
         [Display(Name = "Membership Type")]

@@ -17,8 +17,7 @@ namespace Vidly.ViewModels
 
         [Required]
         [Display(Name = "Release Date")]
-        [Range(typeof(DateTime), "01 jan 1960", "01 jan 2021")]
-        public DateTime? ReleaseDate { get; set; } = DateTime.UtcNow;
+        public DateTime? ReleaseDate { get; set; }
 
         [Required]
         [Range(1, 20)]
@@ -44,7 +43,8 @@ namespace Vidly.ViewModels
             Id = movie.Id;
             Name = movie.Name;
             ReleaseDate = movie.ReleaseDate;
-            NumberInStock = movie.GenreId;
+            NumberInStock = movie.NumberInStock;
+            GenreId = movie.GenreId;
         }
     }
 }
